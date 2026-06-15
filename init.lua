@@ -55,6 +55,7 @@ require("lazy").setup({
   -- syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -87,12 +88,6 @@ require("lazy").setup({
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed     = { "lua_ls", "pyright", "gopls", "ts_ls" },
-        automatic_installation = true,
-      })
-      require("mason-lspconfig").setup_handlers({
-        function(server)
-          require("lspconfig")[server].setup({})
-        end,
       })
     end,
   },
